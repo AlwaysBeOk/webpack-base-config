@@ -1,0 +1,25 @@
+node_modules/
+.idea/
+.git/
+# Thumbnails
+._*
+.DS_Store
+.project
+
+/classworlds
+/com
+/commons-cli
+junit/
+org/
+target/
+xpp3/
+npm-debug.log/
+selenium-debug.log
+src/filters
+test/e2e/reports
+dist
+test/unit/
+out/
+
+
+
