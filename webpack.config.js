@@ -10,8 +10,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 删除文件
 
-const autoprefixer = require('autoprefixer')({'browsers': ['> 1%', 'last 2 versions']});
-
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");//
 
 module.exports = {
   // entry: ["./index.js","./external.js"],//可以将数组内多个入口文件打包成一个文件
@@ -41,22 +40,24 @@ module.exports = {
             {
               loader: 'css-loader',
               options: { importLoaders: 1 }
-            },'postcss-loader'
-            // {
-            //   loader:'postcss-loader',
-            //   options: {
-            //     plugins: autoprefixer
-            //   }
-            // }
-          ]})
+            },
+            {
+              loader: 'postcss-loader'
+            }
+          ],
+          publicPath:''
+        })
       },
       {
         test: /.(jpg|png|gif|svg)$/,
         use: ['url-loader?limit=819&name=./images/[name].[ext]&publicPath=']
         },
       {
-        test: /.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader']/*解析less, 把less解析成浏览器可以识别的css语言*/
+        test: /\.(sass|scss)$/,
+        use: ExtractTextPlugin.extract({ /*解析less, 把less解析成浏览器可以识别的css语言*/
+          fallback:'style-loader',
+          use:['css-loader','sass-loader']
+        })
       }
     ]
   },
@@ -74,16 +75,17 @@ module.exports = {
         // ignore: [ '*.js' ]  //忽略某一部分文件
       }
     ]),
-    // new webpack.LoaderOptionsPlugin({
-    //   options: {
-    //     postcss: autoprefixer()
-    //   }
-    // }),
     //打包出css文件到out文件夹
     new ExtractTextPlugin({
       filename: './index.[chunkhash:8].css',
       allChunks: true,
       disable: false
+    }),
+    new OptimizeCSSAssetsPlugin({
+      assetNameRegExp: /index\.[a-z 0-9]{8}\.css$/g, //匹配到out文件夹中css进行压缩
+      cssProcessor: require('cssnano'),
+      cssProcessorOptions: { discardComments: { removeAll: true } },
+      canPrint: false
     }),
     //清除文件夹再构建
     new CleanWebpackPlugin(['*'], {
@@ -97,6 +99,7 @@ module.exports = {
       template: './index.html'
     })
   ],
+
   optimization: {
     // runtimeChunk: true,
     //压缩js

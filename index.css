@@ -6,6 +6,13 @@
   width: 439px;
   height: 300px;
   background-image: url("./img/dog.jpg");
+  user-select: none;
+}
+/*zheshi没压缩过的代码*/
+.test{
+  width: 400px;
+  height: 200px;
+  background-color: deepskyblue;
 }
 .test{
   width: 400px;
