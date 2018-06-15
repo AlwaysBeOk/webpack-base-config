@@ -1,11 +1,12 @@
 const test = 'test';
-require('./index.css');
+import './index.css';
+import { consoleLogHelloWorld } from './common/util.a';
 var a = require('./src/addClassList');
-var utilA = require('./common/util.a');
-var utilB = require('./common/util.b');
+// var utilA = require('./common/util.a');
+// var utilB = require('./common/util.b');
 a();
-utilA();
-utilB();
+consoleLogHelloWorld();
+console.log($('.main').width());
 
 
 var oImg = new Image();

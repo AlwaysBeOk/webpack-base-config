@@ -1,6 +1,3 @@
-module.exports = function () {
-  const utilA = 'this\'s the first util!';
-
-  console.log(utilA);
-};
-
+export  function consoleLogHelloWorld() {
+  console.log('hello world!');
+}
