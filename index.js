@@ -2,6 +2,7 @@ const test = 'test';
 import './index.css';
 import { consoleLogHelloWorld } from './common/util.a';
 var a = require('./src/addClassList');
+require('./src/generateCSV');
 // var utilA = require('./common/util.a');
 // var utilB = require('./common/util.b');
 a();

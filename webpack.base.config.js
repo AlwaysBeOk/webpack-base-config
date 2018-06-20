@@ -62,14 +62,14 @@ const baseConfig = {
     ]),
   ],
   optimization: {
-    chunks: "all",
-    minSize: 0,
-    minChunks: 1, //最小引入次数
-    maxAsyncRequests: 5, //按需加载最大请求次数为5的所有模块就行拆分到一个单独的代码块中
-    maxInitialRequests: 3, //初始化加载最大请求次数为3的所有模块就行拆分到一个单独的代码块中
-    name: true,
     //common 插件
     splitChunks:{
+      chunks: "all",
+      minSize: 0,
+      minChunks: 1, //最小引入次数
+      maxAsyncRequests: 5, //按需加载最大请求次数为5的所有模块就行拆分到一个单独的代码块中
+      maxInitialRequests: 3, //初始化加载最大请求次数为3的所有模块就行拆分到一个单独的代码块中
+      name: true,
       //缓存组，将多次引用的模块test 缓存到
       cacheGroups:{
         // jquery:{
