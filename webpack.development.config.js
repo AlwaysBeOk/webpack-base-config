@@ -73,10 +73,10 @@ let config = {
     }
   },
   devServer: {
-    contentBase: path.join(__dirname, ""), //注意这边路径不要写太详细，会导致一部分文件重新构建，页面不刷新
+    contentBase: path.join(__dirname, ""), //注意这边路径不要写太详细，会导致部分文件重新构建，页面不刷新
     watchContentBase: true,
     //因为热更新使用的是内存 默认资源是保存在内存中的 需要使用publishpath制定相对路径
-    port: 8072,
+    port: 8077,
     hot: true, //热更新
     hotOnly: false,
     inline: true,
