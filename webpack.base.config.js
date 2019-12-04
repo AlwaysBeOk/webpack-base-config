@@ -64,7 +64,7 @@ const baseConfig = {
   optimization: {
     //common 插件
     splitChunks:{
-      chunks: "all",
+      chunks: "all",//同时分割同步和异步代码,推荐。
       minSize: 0,
       minChunks: 1, //最小引入次数
       maxAsyncRequests: 5, //按需加载最大请求次数为5的所有模块就行拆分到一个单独的代码块中
