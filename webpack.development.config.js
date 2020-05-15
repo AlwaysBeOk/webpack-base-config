@@ -39,13 +39,6 @@ let config = {
   optimization: {
     //common 插件
     splitChunks:{
-      // chunks: "async",
-      // minSize: 30000,
-      // minChunks: 1,
-      // maxAsyncRequests: 5,
-      // maxInitialRequests: 3,
-      // automaticNameDelimiter: '~',
-      // name: true,
       cacheGroups:{
         jquery:{
           test:'jquery', //要写test设置项，不然会打包工程下所有的js文件
@@ -53,22 +46,6 @@ let config = {
           name:'jquery',
           enforce:true
         }
-        // commons: {
-        //   name: 'common',
-        //   chunks: 'initial',
-        //   minChunks: 2,
-        //   maxInitialRequests: 100,
-        //   minSize: 0,
-        //   enforce: true
-        // },
-        // 公共第三方库引入
-        // vendor: {
-        //   test: '/node_modules/',
-        //   chunks: 'initial',
-        //   name: 'vendor',
-        //   priority: 10,
-        //   enforce: true
-        // }
       }
     }
   },

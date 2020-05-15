@@ -41,7 +41,7 @@ for (var j = 0; j < head.length; j++) {
   csvRows.push(head[j].join(','))
 }
 
-//s4. 把新数组用 \n 回车连接，形成csvString
+//s4. 把新数组用 \n 回车连接，形成csvString   例如 'name,age,sex \n xiaoming,1,nan'
 
 var csvString = csvRows.join('\n');
 
